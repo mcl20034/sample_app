@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
+#  admin           :boolean          default(FALSE)
 #  email           :string
 #  name            :string
 #  password_digest :string
@@ -26,7 +27,7 @@ class User < ApplicationRecord
                 format: { with: VALID_EMAIL_REGEX },
                 uniqueness: { case_sensitive: false }
     has_secure_password
-    validates :password, presence: true, length: { minimum: 6 }
+    validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
     # 返回指定字符串的哈希摘要
     def User.digest(string)

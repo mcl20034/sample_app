@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
+#  admin           :boolean          default(FALSE)
 #  email           :string
 #  name            :string
 #  password_digest :string
